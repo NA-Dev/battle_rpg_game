@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,
+      initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Webpage">
+  <meta name="author" content="Nikki Aaron">
+  <link rel="icon" type="image/png" sizes="32x32"
+    href="assets/images/favicon-32x32.png">
+  <title>Let's play...</title>
+    <!-- Normalize Style Sheet -->
+    <link href="assets/css/normalize.css" rel="stylesheet">
+
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <div class="site-title">
+        <h2>
+        <img id="favicon" src="assets/images/Sais.png" alt="Favicon">
+          TMNT Battle Game
+        </h2>
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Portfolio
+            </a>
+          </li>
+          <li>
+            <a href="">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <section class="sidebar child">
+        <h1 id="message"></h1>
+      <hr>
+      <ul>
+        <li>
+          <a id="restart" href="#" onclick="window.location.reload();">
+            Run Away
+          </a>
+        </li>
+        <li>
+          <a id="attack" class="inactive" href="#" onclick="clicked(); return false;">
+            Attack
+          </a>
+        </li>
+      </ul>
+    </section>
+    <main class="child">
+      <h3>
+        Character Arena
+      </h3>
+      <hr>
+      <div id="arena">
+      </div>
+    </main>
+    <div id="ally" class="child">
+      <div id="myBar">
+        <div id="allyHP"></div>
+      </div>
+      <hr>
+    </div>
+    <div id="foe" class="child">
+      <div id="myBar">
+        <div id="foeHP"></div>
+      </div>
+      <hr>
+    </div>
+    <footer>
+      <span>&copy; Copyright 2017 Nikki Aaron</span>
+    </footer>
+
+    <!-- jQuery CDN -->
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/battle-game.js" type="text/javascript"></script>
+    </div>
+  </body>
+
+</html>
