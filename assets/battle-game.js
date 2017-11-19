@@ -12,24 +12,26 @@ function setup() {
         chars = [];
 
         names = ['Rafael', 'Michaelangelo', 'Leonardo',
-        'Donatelo', 'Shredder', 'Splinter'];
+        'Donatelo', 'Shredder', 'Master Splinter'];
 
         images = ['Rafael.png', 'Michelangelo.png',
         'Leonardo.png', 'Donatelo.png', 'Shredder.png', 'Splinter.png'];
 
-        maxHealths = [130, 120, 110, 100, 150, 80];
+        maxHealths = [155, 160, 165, 170, 180, 150];
 
-        initAttackPowers =  [12, 10, 8, 6, 14, 6];
+        initAttackPowers =  [6, 7, 8, 9, 25, 5];
 
-        counterPowers =  [24, 20, 16, 12, 28, 12];
+        counterPowers =  [10, 12, 15, 25, 25, 24];
 
         round = 0;
 
         charGen(); //generate character objects
 
+        $('#allyHP, #foeHP').css('width', '100%');
+
         allyReady = true; //ready to select ally
 
-        $('#message').html('Select an Ally from the Arena');
+        $('#message').html('Who will be your Ally?);
 }
 
 function charGen() {
@@ -103,7 +105,7 @@ function chooseFoeReady() {
     round++;
 
     //choose foe on click of character image
-    $('#message').html('Round ' + round + ': Select a Foe');
+    $('#message').html('Round ' + round + ': Who will your Ally fight?');
     foeReady = true;
 }
 
@@ -201,8 +203,18 @@ function counter() {
 }
 
 function checkWin() {
+    //if ally and foe health are both depleted...
+    if (chars[allyIndex].health < 1 && chars[foeIndex].health < 1) {
+
+        //display negative healths as zero
+        chars[foeIndex].health = chars[allyIndex].health = 0;
+
+        //the game is a draw
+        draw();
+    }
+
     //if ally health depleted...
-    if (chars[allyIndex].health < 1) {
+    else if (chars[allyIndex].health < 1) {
 
         //display negative health as zero
         chars[foeIndex].health = 0;
@@ -229,17 +241,16 @@ function checkWin() {
 }
 
 function newFoe () {
+    //replace defeated foe image with sewer cap
+    $('#foe').html(
+        '<div class="img"><img src="assets/images/sewer.png"></div>'
+    );
+
+    //show 'Defeated' in foe title
+    $('#foeTitle').text('Foe - Defeated');
+
     //if all characters are not defeated...
-    if (round < chars.length) {
-
-        //replace defeated foe image with sewer cap
-        $('#foe').html(
-            '<div class="img"><img src="assets/images/sewer.png"></div>'
-        );
-
-        //show 'Defeated' in foe title
-        $('#foeTitle').text('Foe - Defeated');
-
+    if (round < chars.length - 1) {
         //choose another foe
         chooseFoeReady();
     }
@@ -250,13 +261,23 @@ function newFoe () {
     };
 }
 
+function draw() {
+    //update text
+    $('#restart button').text('Try Again');
+    $('#message').html(
+        'Your powers were evenly matched. Train harder next time.'
+    );
+    $('#allyTitle').text('Ally - Draw');
+    $('#foeTitle').text('Foe - Draw');
+}
+
 function defeat () {
-    //replace defeated foe image with sewer cap
-        $('#ally').html(
+    //replace defeated ally image with sewer cap, and update text
+    $('#ally').html(
             '<div class="img"><img src="assets/images/sewer.png"></div>'
         );
-    $('#restart button').text('Play Again');
-    $('#message').html('Your ally was defeated. Want a re-match?');
+    $('#restart button').text('Try Again');
+    $('#message').html('Your Ally was defeated. Train harder next time.');
     $('#allyTitle').text('Ally - Defeated');
     $('#foeTitle').text('Foe - Victorious');
 }
@@ -264,8 +285,9 @@ function defeat () {
 
 
 function victory() {
+    //update text
     $('#restart button').text('Play Again');
-    $('#message').html('Your ally fought well and won!');
+    $('#message').html('KOWABUNGA! Your Ally fought well and won.');
     $('#allyTitle').text('Ally - Winner');
     $('#foeTitle').text('Foe - Victorious');
 }
