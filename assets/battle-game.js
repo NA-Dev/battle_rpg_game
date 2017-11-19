@@ -31,7 +31,7 @@ function setup() {
 
         allyReady = true; //ready to select ally
 
-        $('#message').html('Who will be your Ally?);
+        $('#message').html('Who will be your Ally?');
 }
 
 function charGen() {
