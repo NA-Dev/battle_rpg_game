@@ -279,7 +279,7 @@ function defeat () {
     $('#restart button').text('Try Again');
     $('#message').html('Your Ally was defeated. Train harder next time.');
     $('#allyTitle').text('Ally - Defeated');
-    $('#foeTitle').text('Foe - Victorious');
+    $('#foeTitle').text('Foe - Winner');
 }
 
 
@@ -289,7 +289,7 @@ function victory() {
     $('#restart button').text('Play Again');
     $('#message').html('KOWABUNGA! Your Ally fought well and won.');
     $('#allyTitle').text('Ally - Winner');
-    $('#foeTitle').text('Foe - Victorious');
+    $('#foeTitle').text('Foe - Defeated');
 }
 
 
