@@ -1,2 +1,4 @@
 # battle_rpg_game
-A JQuery project for week 4 of bootcamp
+
+# A turn-based battle game using Javascript and JQuery framework
+# URL: https://na-dev.github.io/battle_rpg_game/
